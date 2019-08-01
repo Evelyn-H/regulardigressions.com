@@ -17,7 +17,30 @@ body {
     font-family: 'Alegreya Sans';
     /* font-family: 'Fira Sans'; */
     color: $primary-foreground;
-    font-size: 1.125rem;
+    // font-size: 1.125rem;
+    font-size: 1.25rem;
+
+    h1 {
+        font-size: 1.75rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
+}
+
+body.alternate {
+    background: $primary-foreground;
+    color: $primary-backgound;
+
+    #main-header {
+        background: hsl(270, 100%, 80%);
+        background: hsl(120, 50%, 50%);
+        color: $primary-foreground;
+        box-shadow: 0 0 1rem 0.5rem #000;
+    }
 }
 
 #main-header {
@@ -36,6 +59,7 @@ body {
         margin: 0;
         padding-top: 0.5rem;
         text-align: center;
+        font-size: 1.125rem;
     }
 
     nav {
@@ -128,7 +152,8 @@ article {
             // font-weight: normal;
             // font-family: 'Alegreya';
             // This ties the article together with the rest of the design a bit more
-            font-size: 1.5rem;
+            // font-size: 1.5rem;
+            font-size: 1.75rem;
             font-family: 'Fira Code';
         }
 
