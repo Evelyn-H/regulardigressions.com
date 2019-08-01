@@ -1,1 +1,22 @@
+theme:
+permalink: /blog/:title
 
+defaults:
+    -
+        scope:
+            path: ""
+            type: "pages"
+        values:
+            layout: "default"
+            show-date: false
+            show-readtime: false
+            show-header: true
+    -
+        scope:
+            path: ""
+            type: "posts"
+        values:
+            layout: "post"
+            show-date: true
+            show-readtime: true
+            show-header: true

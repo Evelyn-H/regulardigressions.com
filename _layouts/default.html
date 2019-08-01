@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.id != 'index' %}{{ page.title }} | {% endif %}Regular Digressions</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="header-content">
+            <div class="title">
+                <h1>/Regula[r]+ Digressions/</h1>
+                <p>by <strong>Evelyn Hobert</strong></p>
+            </div>
+            <nav>
+                {% for item in site.data.navigation %}
+                <a href="{{ item.link }}" {% if page.url == item.link %} class="current-page" {% endif %}>{{ item.name | downcase}}</a>
+                {% endfor %}
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            {% if page.show-header %}
+            <header>
+                <h1>{{ page.title }}</h1>
+                {% if page.show-readtime or page.show-date %}
+                <p class="post-meta">
+                    {% if page.show-date %}
+                    <time datetime="{{page.date}}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                    {% endif %}
+                    {% if page.show-readtime and page.show-date %}
+                    <span class="dash">&mdash;</span>
+                    {% endif %}
+                    {% if page.show-readtime %}
+                    <span class="read-time">{% include read-time.html content=content %} minute read</span>
+                    {% endif %}
+                </p>
+                {% endif %}
+            </header>
+            {% endif %}
+            <div id="content-wrapper" {% if page.center-content %} class="center-content" {% endif %}>
+                {{ content }}
+            </div>
+            <!-- <div class="flex-spacer"></div> -->
+            <footer>
+                <p>&copy; &nbsp; 2019 &nbsp; Evelyn Hobert</p>
+            </footer>
+        </article>
+    </main>
+</body>
+
+</html>

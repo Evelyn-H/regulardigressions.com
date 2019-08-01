@@ -1,0 +1,267 @@
+// TODO:
+//   - better post list layout
+//   - make fancy (semi) full-screen home page
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:400');
+@import url('https://fonts.googleapis.com/css?family=Fira+Code:400,700'); // @import url('https://fonts.googleapis.com/css?family=Alegreya:400&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300');
+$primary-backgound: #f0f0f0;
+$primary-foreground: #222;
+$secondary-background: $primary-foreground;
+$secondary-foreground: hsl(120, 100%, 65%); // $secondary-foreground: hsl(270, 100%, 70%);
+/*
+*  Styling
+*/
+body {
+    background: $primary-backgound;
+    font-family: 'Alegreya Sans';
+    /* font-family: 'Fira Sans'; */
+    color: $primary-foreground;
+    font-size: 1.125rem;
+}
+
+#main-header {
+    background: $secondary-background;
+    font-family: 'Fira Code', monospace, monospace;
+    color: $secondary-foreground;
+
+    h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+        text-align: center;
+        max-width: 20rem;
+    }
+
+    .title p {
+        margin: 0;
+        padding-top: 0.5rem;
+        text-align: center;
+    }
+
+    nav {
+        white-space: nowrap;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+            margin: 0.25rem 1rem 0.25rem 0.25rem;
+
+            &:hover {
+                color: $secondary-background;
+                background: $secondary-foreground;
+            }
+
+            &::before {
+                /* content: "\2515\2501"; */
+                content: ">>";
+                padding-right: 0.5ch;
+                display: inline-block;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.pretty-list {
+    display: table;
+    margin: 0;
+    padding-left: 0;
+    // padding-left: 1rem;
+    // border-collapse: separate;
+    // border-spacing: 0 2rem;
+    li {
+        list-style: none;
+        display: table-row;
+        margin-bottom: 1rem;
+    }
+
+    li::before {
+        content: ">>";
+        display: table-cell;
+        padding-right: 1ch;
+        font-family: "Fira Code";
+        font-size: 1.25rem;
+    }
+
+    h2 {
+        margin: 0;
+        font-family: "Fira Code";
+        font-size: 1.25rem;
+    }
+
+    .post-meta {
+        font-style: italic;
+    }
+
+    .post-description {
+        display: table-cell;
+        padding-bottom: 2rem;
+    }
+}
+
+footer {
+    text-align: center;
+    // padding: 1rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid $primary-foreground;
+    margin-top: 2rem;
+    // get rids of the extra spacing at the bottom
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+article {
+    header {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        h1 {
+            font-size: 2rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid $primary-foreground;
+            // font-weight: normal;
+            // font-family: 'Alegreya';
+            // This ties the article together with the rest of the design a bit more
+            font-size: 1.5rem;
+            font-family: 'Fira Code';
+        }
+
+        p {
+            margin: 0;
+            font-style: italic;
+            // This makes the preferred wrapping points on tiny screens better
+            // & > * {
+            // display: inline-block;
+            // }
+        }
+    }
+}
+
+// #content-wrapper {
+//     p {
+//         text-indent: 4rem;
+//     }
+// }
+
+// for extra spacing around an &mdash;
+
+.dash {
+    padding: 0 1rem;
+}
+/* article p:first-of-type {
+  padding: 1rem;
+  margin: 2rem;
+  border: 1px dashed #222;
+  background: #eee;
+} */
+/*
+*  Layout
+*/
+html {
+    // This fixes the page jumping because of the scrollbar (dis)appearing
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    max-width: 60rem;
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+article {
+    flex: 1 1 auto;
+    max-width: 40rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#content-wrapper {
+    flex: 1 0 auto;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-spacer {
+    flex: 1 1 auto;
+}
+
+.header-content {
+    max-width: 40rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+        /* flex: 1 1 auto; */
+        /* max-width: 14rem; */
+        margin: 2rem;
+    }
+
+    nav {
+        /* padding: 2rem; */
+        /* max-width: 40rem; */
+        /* margin: auto; */
+        margin: 1rem 2rem;
+    }
+}
+@media (min-width:40rem) {
+    .header-content {
+        flex-direction: row;
+    }
+
+    #main-header nav {
+        flex-direction: column;
+    }
+}
+@media (min-width:60rem) {
+    main {
+        padding-left: 20rem;
+    }
+
+    #main-header {
+        position: fixed;
+        width: 20rem;
+        height: 100vh;
+
+        nav {
+            flex-direction: column;
+        }
+    }
+
+    .header-content {
+        flex-direction: column;
+    }
+}
+// This centers the text column on the page with the sidebar to the left,
+// once the page is wide enough to accomodate this
+@media (min-width:80rem) {
+    main {
+        padding-right: 20rem;
+    }
+
+    body {
+        max-width: 80rem;
+    }
+}
