@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.id != 'index' %}{{ page.title }} | {% endif %}Regular Digressions</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
             </div>
             <nav>
                 {% for item in site.data.navigation %}
-                <a href="{{ item.link }}" {% if page.url == item.link %} class="current-page" {% endif %}>{{ item.name | downcase}}</a>
+                <a href="{{ item.link | relative_url }}" {% if page.url == item.link %} class="current-page" {% endif %}>{{ item.name | downcase}}</a>
                 {% endfor %}
             </nav>
         </div>
