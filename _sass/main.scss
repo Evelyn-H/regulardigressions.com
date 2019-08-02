@@ -5,61 +5,58 @@
 // @import url('https://fonts.googleapis.com/css?family=Fira+Code:400,700');
 // @import url('https://fonts.googleapis.com/css?family=Alegreya:400&display=swap');
 // @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300');
-$primary-backgound: #f0f0f0;
-$primary-foreground: #222;
-$secondary-background: $primary-foreground;
-$secondary-foreground: hsl(120, 100%, 65%); // $secondary-foreground: hsl(270, 100%, 70%);
-/*
-*  Styling
-*/
+
+@import "variables";
+@import "styling";
+@import "layout";
+
 body {
-    background: $primary-backgound;
-    font-family: 'Alegreya Sans';
-    /* font-family: 'Fira Sans'; */
-    color: $primary-foreground;
-    font-size: 1.125rem;
+    background: $light;
+    font-family: $sans-serif;
+    color: $dark;
 
-    h1 {
-        font-size: 1.625rem;
-    }
-    h2 {
-        font-size: 1.375rem;
-    }
-    h3 {
-        font-size: 1.125rem;
-    }
+    @include font-size-m;
+}
 
-    @media (min-width:40rem) {
-        font-size: 1.25rem;
+h1 {
+    @include font-size-xl;
+}
 
-        h1 {
-            font-size: 1.75rem;
-        }
-        h2 {
-            font-size: 1.5rem;
-        }
-        h3 {
-            font-size: 1.25rem;
-        }
+h2 {
+    @include font-size-l;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    @include font-size-m;
+}
+
+a {
+    color: $link;
+
+    &:hover {
+        color: $link-hover;
     }
 }
 
-body.alternate {
-    background: $primary-foreground;
-    color: $primary-backgound;
-
-    #main-header {
-        background: hsl(270, 100%, 80%);
-        background: hsl(120, 50%, 50%);
-        color: $primary-foreground;
-        box-shadow: 0 0 1rem 0.5rem #000;
-    }
-}
+// body.alternate {
+//     background: $primary-foreground;
+//     color: $primary-backgound;
+//
+//     #main-header {
+//         background: hsl(270, 100%, 80%);
+//         background: hsl(120, 50%, 50%);
+//         color: $primary-foreground;
+//         box-shadow: 0 0 1rem 0.5rem #000;
+//     }
+// }
 
 #main-header {
-    background: $secondary-background;
-    font-family: 'Fira Code', monospace, monospace;
-    color: $secondary-foreground;
+    background: $dark;
+    font-family: $monospace;
+    color: $primary;
 
     h1 {
         font-size: 2rem;
@@ -87,8 +84,8 @@ body.alternate {
             margin: 0.25rem 1rem 0.25rem 0.25rem;
 
             &:hover {
-                color: $secondary-background;
-                background: $secondary-foreground;
+                color: $dark;
+                background: $primary;
             }
 
             &::before {
@@ -119,14 +116,14 @@ body.alternate {
         content: ">>";
         display: table-cell;
         padding-right: 1ch;
-        font-family: "Fira Code";
-        font-size: 1.25rem;
+        font-family: $monospace;
+        @include font-size-m;
     }
 
     h2 {
         margin: 0;
-        font-family: "Fira Code";
-        font-size: 1.25rem;
+        font-family: $monospace;
+        @include font-size-m;
     }
 
     .post-meta {
@@ -143,7 +140,7 @@ footer {
     text-align: center;
     // padding: 1rem 0;
     padding-top: 1rem;
-    border-top: 1px solid $primary-foreground;
+    border-top: 1px solid $dark;
     margin-top: 2rem;
     // get rids of the extra spacing at the bottom
     & > :last-child {
@@ -157,19 +154,15 @@ article {
         margin-bottom: 2rem;
 
         h1 {
-            font-size: 2rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
+            // padding-left: 2rem;
+            // padding-right: 2rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid $primary-foreground;
+            border-bottom: 1px solid $dark;
             // font-weight: normal;
             // font-family: 'Alegreya';
             // This ties the article together with the rest of the design a bit more
-            font-size: 1.5rem;
-            @media (min-width:40rem) {
-                font-size: 1.75rem;
-            }
-            font-family: 'Fira Code';
+            @include font-size-xl;
+            font-family: $monospace;
         }
 
         p {
@@ -267,7 +260,7 @@ article {
         margin: 1rem 2rem;
     }
 }
-@media (min-width:40rem) {
+@include screen-m {
     .header-content {
         flex-direction: row;
     }
@@ -276,7 +269,7 @@ article {
         flex-direction: column;
     }
 }
-@media (min-width:60rem) {
+@include screen-l {
     main {
         padding-left: 20rem;
     }
@@ -297,7 +290,7 @@ article {
 }
 // This centers the text column on the page with the sidebar to the left,
 // once the page is wide enough to accomodate this
-@media (min-width:80rem) {
+@include screen-xl {
     main {
         padding-right: 20rem;
     }

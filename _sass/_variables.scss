@@ -1,0 +1,65 @@
+// fallback fonts
+$sans-serif-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$monospace-fallback: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+// fonts
+$sans-serif: "Alegreya Sans", $sans-serif-fallback;
+$monospace: "Fira Code", $monospace-fallback;
+
+//colours
+$light: #f0f0f0;
+$dark: #222;
+$primary: hsl(120, 100%, 65%); // hsl(270, 100%, 70%);
+$link: hsl(210, 100%, 50%);
+$link-hover: hsl(210, 100%, 25%);
+
+// Media query mixins
+// @mixin screen-s {
+//     @media (max-width:39.9rem) {
+//         @content;
+//     }
+// }
+@mixin screen-m {
+    @media (min-width:40rem) {
+        @content;
+    }
+}
+@mixin screen-l {
+    @media (min-width:60rem) {
+        @content;
+    }
+}
+@mixin screen-xl {
+    @media (min-width:80rem) {
+        @content;
+    }
+}
+
+
+// font-size mixins
+@mixin font-size-m {
+    font-size: 1.125rem;
+    @include screen-m {
+        font-size: 1.25rem;
+    }
+}
+
+@mixin font-size-l {
+    font-size: 1.375rem;
+    @include screen-m {
+        font-size: 1.5rem;
+    }
+}
+
+@mixin font-size-xl {
+    font-size: 1.625rem;
+    @include screen-m {
+        font-size: 1.75rem;
+    }
+}
+
+@mixin font-size-xxl {
+    font-size: 1.875rem;
+    @include screen-m {
+        font-size: 2rem;
+    }
+}
