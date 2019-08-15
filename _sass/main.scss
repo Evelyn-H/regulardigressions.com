@@ -10,27 +10,50 @@
 @import "styling";
 @import "layout";
 
+html {
+    font-size: 16px;
+    @include screen-m {
+        // font-size: 125%;
+        // font-size: 20px;
+    }
+}
+
+article {
+    // font-size: 18px;
+    @include screen-m {
+        font-size: 125%;
+        // font-size: 22px;
+    }
+}
+
 body {
     background: $light;
-    font-family: $sans-serif;
+    font-family: $main-font;
+    // font-family: $monospace;
     color: $dark;
 
-    @include font-size-m;
+    // @include font-size-m;
 }
 
 h1 {
-    @include font-size-xl;
+    font-size: 1.75em;
+    // @include font-size-xl;
 }
 
 h2 {
-    @include font-size-l;
+    font-size: 1.5em;
+    // @include font-size-l;
 }
 
-h3,
+h3 {
+    font-size: 1.25em;
+}
+// h3,
 h4,
 h5,
 h6 {
-    @include font-size-m;
+    font-size: 1em;
+    // @include font-size-m;
 }
 
 a {
@@ -39,6 +62,37 @@ a {
     &:hover {
         color: $link-hover;
     }
+}
+
+// code blocks
+
+// shared
+code {
+    font-family: $monospace;
+    // @include font-size-s;
+    // font-size: 1rem;
+    font-size: 0.8em;
+}
+
+%code-block {
+    background: #fafafa;
+}
+// inline
+code.highlighter-rouge {
+    @extend %code-block;
+    color: hsla(0, 50%, 50%, 1);
+    border-radius: 0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+
+}
+// block level
+div.highlighter-rouge pre {
+    @extend %code-block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ddd;
+    line-height: 1.2;
 }
 
 // body.alternate {
@@ -54,38 +108,79 @@ a {
 // }
 
 #main-header {
-    background: $dark;
+    background: $primary;
     font-family: $monospace;
-    color: $primary;
+    color: $light;
 
     h1 {
         font-size: 2rem;
         line-height: 1.2;
         text-align: center;
-        max-width: 20rem;
+        max-width: $sidebar-width;
+
+        a {
+            color: inherit;
+
+            &:hover {
+                color: inherit;
+            }
+        }
     }
 
     .title p {
         margin: 0;
         padding-top: 0.5rem;
         text-align: center;
-        font-size: 1.125rem;
+        // font-size: 1.125rem;
     }
 
     nav {
-        white-space: nowrap;
+        margin: 1rem;
+        @include screen-m {
+            margin: 2rem;
+        }
+
         display: flex;
         flex-direction: row;
         align-items: flex-start;
 
         a {
+            // margin: 0.5rem 1rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            padding: 0 0.5rem;
+            height: 2rem;
+            line-height: 2rem;
+        }
+
+    }
+
+    .page-links {
+        white-space: nowrap;
+        // display: flex;
+        // flex-direction: row;
+        // align-items: flex-start;
+
+        font-size: 1rem;
+        @include screen-m {
+            font-size: 1.25rem;
+        }
+
+        // margin: 2rem;
+        margin: 0rem;
+        @include screen-m {
+            margin: 2rem;
+        }
+
+        a {
             color: inherit;
             text-decoration: underline;
-            margin: 0.25rem 1rem 0.25rem 0.25rem;
+            // margin: 0.5rem 0.5rem 0.5rem 0;
+            // padding: 0 0.5rem;
+
 
             &:hover {
-                color: $dark;
-                background: $primary;
+                color: $primary;
+                background: $light;
             }
 
             &::before {
@@ -95,6 +190,48 @@ a {
                 display: inline-block;
                 text-decoration: none;
             }
+        }
+    }
+
+    .icon-links {
+        // margin: 1.5rem;
+
+        // display: flex;
+        // flex-direction: row;
+
+        @include screen-m {
+            flex-direction: column;
+        }
+
+        @include screen-l {
+            flex-direction: row;
+        }
+
+        a {
+            margin-left: 0.75rem;
+            margin-right: 0.75rem;
+            display: inline-block;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        svg {
+            height: 100%;
+            width: auto;
+
+            path {
+                fill: $light;
+            }
+        }
+    }
+
+    .flex-spacer, .copyright {
+        display: none;
+
+        @include screen-l {
+            display: block;
         }
     }
 }
@@ -117,13 +254,16 @@ a {
         display: table-cell;
         padding-right: 1ch;
         font-family: $monospace;
-        @include font-size-m;
+        // @include font-size-m;
+
     }
 
     h2 {
         margin: 0;
+        // font-family: $main-font;
         font-family: $monospace;
-        @include font-size-m;
+        // @include font-size-m;
+        font-size: 1em;
     }
 
     .post-meta {
@@ -156,13 +296,21 @@ article {
         h1 {
             // padding-left: 2rem;
             // padding-right: 2rem;
-            padding-bottom: 0.5rem;
+            padding-bottom: 1rem;
             border-bottom: 1px solid $dark;
             // font-weight: normal;
             // font-family: 'Alegreya';
             // This ties the article together with the rest of the design a bit more
-            @include font-size-xl;
+            // @include font-size-xl;
             font-family: $monospace;
+            // font-family: $main-font;
+
+            // make it match the "Regular Digressions" logo
+            line-height: 1.2;
+            font-size: 1.5rem;
+            @include screen-m {
+                font-size: 1.75rem;
+            }
         }
 
         p {
@@ -177,22 +325,21 @@ article {
 }
 
 // #content-wrapper {
-//     p {
-//         text-indent: 4rem;
-//     }
+// font-family: $sans-serif;
+// font-size: 20px;
+// @include screen-m {
+//     font-size: 125%;
+//     // font-size: 20px;
+// }
+// p {
+//     text-indent: 4rem;
+// }
 // }
 
 // for extra spacing around an &mdash;
-
 .dash {
     padding: 0 1rem;
 }
-/* article p:first-of-type {
-  padding: 1rem;
-  margin: 2rem;
-  border: 1px dashed #222;
-  background: #eee;
-} */
 /*
 *  Layout
 */
@@ -203,7 +350,7 @@ html {
 }
 
 body {
-    max-width: 60rem;
+    max-width: $main-width + $sidebar-width;
     margin: auto;
     min-height: 100vh;
     display: flex;
@@ -218,8 +365,12 @@ main {
 
 article {
     flex: 1 1 auto;
-    max-width: 40rem;
+    max-width: $main-width;
+    width: 100%;
     padding: 2rem;
+    @include screen-m {
+        padding: 2rem 4rem;
+    }
     display: flex;
     flex-direction: column;
 }
@@ -240,7 +391,8 @@ article {
 }
 
 .header-content {
-    max-width: 40rem;
+    max-width: $main-width;
+    height: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -249,37 +401,41 @@ article {
 
     .title {
         /* flex: 1 1 auto; */
-        /* max-width: 14rem; */
+        max-width: 16rem;
         margin: 2rem;
     }
 
-    nav {
-        /* padding: 2rem; */
-        /* max-width: 40rem; */
-        /* margin: auto; */
-        margin: 1rem 2rem;
+    .copyright {
+        border-top: 1px solid #f0f0f0;
+        align-self: stretch;
+        margin: 0 2rem;
+        padding-top: 1rem;
+        font-size: 0.75rem;
+        text-align: center;
     }
 }
+
 @include screen-m {
     .header-content {
         flex-direction: row;
     }
 
-    #main-header nav {
+    #main-header .page-links {
         flex-direction: column;
     }
 }
+
 @include screen-l {
     main {
-        padding-left: 20rem;
+        padding-left: $sidebar-width;
     }
 
     #main-header {
         position: fixed;
-        width: 20rem;
+        width: $sidebar-width;
         height: 100vh;
 
-        nav {
+        .page-links {
             flex-direction: column;
         }
     }
@@ -292,10 +448,10 @@ article {
 // once the page is wide enough to accomodate this
 @include screen-xl {
     main {
-        padding-right: 20rem;
+        padding-right: $sidebar-width;
     }
 
     body {
-        max-width: 80rem;
+        max-width: $main-width + 2 * $sidebar-width;
     }
 }

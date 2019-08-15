@@ -2,13 +2,24 @@
 <html lang="en">
 
 <head>
+    <!-- preamble -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- metadata -->
     <title>{% if page.id != 'index' %}{{ page.title }} | {% endif %}Regular Digressions</title>
+
+    <!-- styling -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ "/assets/css/highlight.css" | relative_url }}">
+
+    <!-- fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Code:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700" rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145067297-1"></script>
@@ -21,8 +32,6 @@
         gtag('js', new Date());
         gtag('config', 'UA-145067297-1');
     </script>
-
-
 </head>
 
 <!-- <body class="alternate"> -->
@@ -30,14 +39,30 @@
     <header id="main-header">
         <div class="header-content">
             <div class="title">
-                <h1>/Regula[r]+ Digressions/</h1>
-                <p>by <strong>Evelyn Hobert</strong></p>
+                <h1><a href="{{ "/" | relative_url }}">/Regula[r]+ Digressions/</a></h1>
+                <!-- <p>by <strong>Evelyn Hobert</strong></p> -->
+                <p>Whatever comes to mind.</p>
             </div>
-            <nav>
+            <nav class="page-links">
                 {% for item in site.data.navigation %}
                 <a href="{{ item.link | relative_url }}" {% if page.url == item.link %} class="current-page" {% endif %}>{{ item.name | downcase}}</a>
                 {% endfor %}
             </nav>
+            <nav class="icon-links">
+                <a href="{{ "/feed.xml" | relative_url }}" title="Atom Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-12.832 20c-1.197 0-2.168-.969-2.168-2.165s.971-2.165 2.168-2.165 2.167.969 2.167 2.165-.97 2.165-2.167 2.165zm5.18 0c-.041-4.029-3.314-7.298-7.348-7.339v-3.207c5.814.041 10.518 4.739 10.561 10.546h-3.213zm5.441 0c-.021-7.063-5.736-12.761-12.789-12.792v-3.208c8.83.031 15.98 7.179 16 16h-3.211z"/></svg>
+                </a>
+                <a href="{{ "/tags" | relative_url }}" title="Tags">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M11.602 21.564l-1.368 1.436-10.234-10.258v-7.742h2v6.891l9.602 9.673zm12.398-8.454l-9.027 9.027-10.973-11.123v-9.014h8.877l11.123 11.11zm-14.263-5.374c.684-.684.682-1.791-.001-2.475-.684-.684-1.791-.684-2.475 0s-.684 1.791 0 2.475 1.793.684 2.476 0zm4.421 6.848l-3.535-3.537-.707.707 3.535 3.537.707-.707zm2.828 0l-4.949-4.951-.707.707 4.949 4.951.707-.707zm1.415-1.416l-4.95-4.949-.707.707 4.95 4.949.707-.707z"/></svg>
+                </a>
+                <a href="https://github.com/Evelyn-H" title="Github Page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </nav>
+            <div class="flex-spacer"></div>
+            <div class="copyright">
+                <p>&copy; 2019-2020 Evelyn Hobert</p>
+            </div>
         </div>
     </header>
 
@@ -45,7 +70,7 @@
         <article>
             {% if page.show-header %}
             <header>
-                <h1>{{ page.title }}</h1>
+                <h1 class="page-title">{{ page.title }}</h1>
                 {% if page.show-readtime or page.show-date %}
                 <p class="post-meta">
                     {% if page.show-date %}
@@ -65,9 +90,9 @@
                 {{ content }}
             </div>
             <!-- <div class="flex-spacer"></div> -->
-            <footer>
+            <!-- <footer>
                 <p>&copy; &nbsp; 2019 &nbsp; Evelyn Hobert</p>
-            </footer>
+            </footer> -->
         </article>
     </main>
 </body>

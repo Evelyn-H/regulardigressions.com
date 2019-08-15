@@ -1,6 +1,10 @@
 theme:
 permalink: /blog/:title
 
+# markdown: kramdown
+# kramdown:
+    # input:
+
 defaults:
     -
         scope:
