@@ -95,6 +95,53 @@ div.highlighter-rouge pre {
     line-height: 1.2;
 }
 
+.footnote {
+    &::before {
+        content: "[";
+    }
+
+    &::after {
+        content: "]";
+    }
+    padding-left: 0.25em;
+}
+
+.footnotes {
+    border-top: 1px solid $dark;
+    padding-top: 1rem;
+
+    & > ol > li {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        &:target {
+            background: mix($primary, $light, 20%);
+            border-radius: 0.25rem;
+        }
+        // list-style: none;
+        // & > li {
+        //     &::before {
+        //         content: "[";
+        //     }
+        //
+        //     &::after {
+        //         content: "]";
+        //     }
+        // }
+
+    }
+}
+
+.reversefootnote {
+    // font-family: $monospace;
+    // make it superscript
+    top: -.5em;
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
 // body.alternate {
 //     background: $primary-foreground;
 //     color: $primary-backgound;
@@ -135,11 +182,6 @@ div.highlighter-rouge pre {
     }
 
     nav {
-        margin: 1rem;
-        @include screen-m {
-            margin: 2rem;
-        }
-
         display: flex;
         flex-direction: row;
         align-items: flex-start;
@@ -166,7 +208,7 @@ div.highlighter-rouge pre {
         }
 
         // margin: 2rem;
-        margin: 0rem;
+        margin: 0;
         @include screen-m {
             margin: 2rem;
         }
@@ -176,7 +218,6 @@ div.highlighter-rouge pre {
             text-decoration: underline;
             // margin: 0.5rem 0.5rem 0.5rem 0;
             // padding: 0 0.5rem;
-
 
             &:hover {
                 color: $primary;
@@ -194,7 +235,10 @@ div.highlighter-rouge pre {
     }
 
     .icon-links {
-        // margin: 1.5rem;
+        margin: 1rem 1rem 2rem;
+        @include screen-m {
+            margin: 2rem;
+        }
 
         // display: flex;
         // flex-direction: row;
@@ -227,7 +271,8 @@ div.highlighter-rouge pre {
         }
     }
 
-    .flex-spacer, .copyright {
+    .copyright,
+    .flex-spacer {
         display: none;
 
         @include screen-l {
@@ -316,6 +361,7 @@ article {
         p {
             margin: 0;
             font-style: italic;
+            // font-size: 0.85em;
             // This makes the preferred wrapping points on tiny screens better
             // & > * {
             // display: inline-block;

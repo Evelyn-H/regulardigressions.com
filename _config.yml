@@ -1,9 +1,9 @@
 theme:
 permalink: /blog/:title
 
-# markdown: kramdown
-# kramdown:
-    # input:
+markdown: kramdown
+kramdown:
+    footnote_backlink: "[return]"
 
 defaults:
     -
