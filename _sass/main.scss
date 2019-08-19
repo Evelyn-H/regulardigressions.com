@@ -155,7 +155,11 @@ div.highlighter-rouge pre {
 // }
 
 #main-header {
-    background: $primary;
+//     background: $primary;
+    background: hsla(255, 25%, 30%, 1); // backup
+    background: linear-gradient(0deg, hsla(255, 25%, 30%, 1), hsla(255, 25%, 40%, 1));
+    box-shadow: 0 0 1.25rem -0.25rem $dark;
+        
     font-family: $monospace;
     color: $light;
 
