@@ -8,16 +8,22 @@ $main-font: Alegreya, $main-font-fallback;
 $monospace: "Fira Code", $monospace-fallback;
 
 //colours
-$light: #f0f0f0;
-// $light: #fff;
+$light: #fafafa;
+$dark-ish: #ccc;
 $dark: #222;
-$primary: hsl(255, 25%, 55%); //hsl(120, 100%, 65%); // hsl(270, 100%, 70%);
+$primary: hsl(255, 25%, 30%);
+$primary-lighter: hsl(255, 10%, 70%);
 $link: hsl(210, 100%, 50%);
 $link-hover: hsl(210, 100%, 25%);
 
 // layout sizes
 $main-width: 48rem;
-$sidebar-width: 20rem;
+$main-width-min: 40rem;
+$sidebar-width: 22rem;
+$sidebar-width-min: 18rem;
+$gutter-width: 2rem;
+$total-width: $main-width + $sidebar-width + $gutter-width*3;
+$total-width-min: $main-width-min + $sidebar-width-min + $gutter-width*3;
 
 // Media query mixins
 // @mixin screen-s {
@@ -25,21 +31,22 @@ $sidebar-width: 20rem;
 //         @content;
 //     }
 // }
+
 @mixin screen-m {
-    @media (min-width: $main-width) {
+    @media (min-width: $main-width-min) {
         @content;
     }
 }
 @mixin screen-l {
-    @media (min-width: $main-width + $sidebar-width) {
+    @media (min-width: $total-width-min) {
         @content;
     }
 }
-@mixin screen-xl {
-    @media (min-width: $main-width + 2 * $sidebar-width) {
-        @content;
-    }
-}
+// @mixin screen-xl {
+//     @media (min-width: $main-width + 2 * $sidebar-width) {
+//         @content;
+//     }
+// }
 
 
 // font-size mixins

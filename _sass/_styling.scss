@@ -1,0 +1,63 @@
+/* BASICS */
+
+body {
+    background: $dark-ish;
+    font-family: $main-font;
+    color: $dark;
+}
+
+article {
+    background: $light;
+}
+
+/* LINKS */
+a {
+    color: $link;
+
+    &:hover {
+        color: $link-hover;
+    }
+}
+
+/* MAIN HEADER & FOOTER */
+#main-footer,
+#main-header {
+    background: $primary;
+
+    font-family: $monospace;
+    color: $light;
+
+}
+
+#header-content {}
+
+/* SIDEBAR */
+.sidebar {
+    section {
+        background: $primary-lighter;
+    }
+}
+
+/* CODE BLOCKS */
+code {
+    font-family: $monospace;
+    font-size: 0.8em;
+}
+
+// inline
+code.highlighter-rouge {
+    background: #ddd;
+    color: hsla(0, 50%, 50%, 1);
+    border-radius: 0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    word-wrap: break-word
+}
+// block level
+div.highlighter-rouge pre {
+    background: #ddd;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ddd;
+    line-height: 1.2;
+}

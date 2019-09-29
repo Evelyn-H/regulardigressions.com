@@ -1,0 +1,78 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    // responsive font size
+    @include screen-m {
+        font-size: 125%;
+    }
+
+    // make it full height
+    min-height: 100vh;
+
+    // fancy container!
+    display: flex;
+    flex-direction: column;
+
+    main {
+        // center page content
+        max-width: $total-width;
+        margin: auto;
+        padding-bottom: $gutter-width;
+        padding-top: $gutter-width;
+
+        // flex!
+        width: 100%;
+        // flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include screen-m {
+            padding: $gutter-width;
+        }
+        @include screen-l {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        article {
+            max-width: $main-width;
+            width: 100%;
+            margin-bottom: $gutter-width;
+            @include screen-l {
+                flex: 2 2 $main-width-min;
+                margin-bottom: 0;
+            }
+            padding: $gutter-width;
+        }
+
+        aside {
+            display: flex;
+            flex-direction: column;
+
+            max-width: $main-width;
+            width: 100%;
+
+            @include screen-l {
+                flex: 1 1 $sidebar-width-min;
+                margin-left: $gutter-width;
+                max-width: $sidebar-width;
+            }
+
+            section {
+                margin-bottom: $gutter-width;
+                padding: $gutter-width;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+// utility class to take up extra flex space
+.flex-spacer {
+    flex: 1 0 0;
+}
