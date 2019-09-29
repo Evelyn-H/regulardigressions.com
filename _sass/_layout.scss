@@ -1,5 +1,8 @@
 html {
     font-size: 16px;
+    // This fixes the page jumping because of the scrollbar (dis)appearing
+    // width: 100vw;
+    // overflow-x: hidden;
 }
 
 body {
@@ -15,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    main {
+    & > main {
         // center page content
         max-width: $total-width;
         margin: auto;
@@ -28,6 +31,8 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+
         @include screen-m {
             padding: $gutter-width;
         }
@@ -36,7 +41,7 @@ body {
             align-items: flex-start;
         }
 
-        article {
+        & > article {
             max-width: $main-width;
             width: 100%;
             margin-bottom: $gutter-width;
@@ -47,7 +52,7 @@ body {
             padding: $gutter-width;
         }
 
-        aside {
+        & > aside {
             display: flex;
             flex-direction: column;
 
@@ -60,7 +65,7 @@ body {
                 max-width: $sidebar-width;
             }
 
-            section {
+            & > section {
                 margin-bottom: $gutter-width;
                 padding: $gutter-width;
 
@@ -72,7 +77,14 @@ body {
     }
 }
 
-// utility class to take up extra flex space
+/* UTILITY CLASSES */
 .flex-spacer {
     flex: 1 0 0;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

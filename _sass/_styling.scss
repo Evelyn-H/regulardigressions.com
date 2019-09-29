@@ -1,4 +1,4 @@
-/* BASICS */
+/* BASIC COLOURS & FONTS */
 
 body {
     background: $dark-ish;
@@ -8,6 +8,26 @@ body {
 
 article {
     background: $light;
+}
+
+/* HEADINGS */
+
+h1 {
+    font-size: 1.75em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1em;
 }
 
 /* LINKS */
@@ -23,41 +43,125 @@ a {
 #main-footer,
 #main-header {
     background: $primary;
-
     font-family: $monospace;
     color: $light;
 
+    #header-content {}
 }
 
-#header-content {}
+#main-footer {
+    font-size: 0.8em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    // get rids of the extra spacing at the bottom
+    & > :last-child {
+        margin-bottom: 0;
+    }
 
-/* SIDEBAR */
-.sidebar {
-    section {
-        background: $primary-lighter;
+    .copyright {
+        // margin: 0;
+    }
+
+    .short-hr {
+        border-top: 1px solid $light;
     }
 }
 
-/* CODE BLOCKS */
-code {
-    font-family: $monospace;
-    font-size: 0.8em;
+/* SIDEBAR */
+.sidebar {
+    & > section {
+        background: $primary-lighter;
+
+        & > h1 {
+            display: inline-block;
+            font-size: 1em;
+            font-family: $monospace;
+            border-bottom: 2px solid $primary;
+            margin-bottom: 1em;
+        }
+    }
 }
 
-// inline
-code.highlighter-rouge {
-    background: #ddd;
-    color: hsla(0, 50%, 50%, 1);
-    border-radius: 0.25rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    word-wrap: break-word
+/* ARTICLE */
+article {
+    & > header {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        .page-title {
+            font-size: 1.5em;
+            font-family: $monospace;
+            // font-weight: normal;
+            line-height: 1.2;
+            // padding-left: 2rem;
+            // padding-right: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $dark;
+        }
+    }
 }
-// block level
-div.highlighter-rouge pre {
-    background: #ddd;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    border: 1px solid #ddd;
-    line-height: 1.2;
+
+// This makes the preferred wrapping points on tiny screens better
+.post-meta {
+    font-style: italic;
+
+    .dash {
+        padding: 0 0.5em;
+    }
+
+    & > * {
+        display: inline-block;
+    }
+}
+
+/* POST LIST */
+.post-list {
+    h2 {
+        margin: 0;
+        font-family: $monospace;
+        font-size: 1em;
+    }
+
+    .post-description {
+        display: table-cell;
+        padding-bottom: 2rem;
+    }
+}
+
+/* UTILITY CLASSES */
+// ul,
+.pretty-list {
+    display: table;
+    margin: 0;
+    padding-left: 0;
+    // padding-left: 1rem;
+    // border-collapse: separate;
+    // border-spacing: 0 2rem;
+    li {
+        list-style: none;
+        display: table-row;
+        margin-bottom: 1rem;
+    }
+
+    li::before {
+        content: ">>";
+        display: table-cell;
+        padding-right: 1ch;
+        font-family: $monospace;
+    }
+}
+
+// better <hr>
+.short-hr {
+    display: block;
+    height: 1px;
+    width: 8em;
+    border: 0;
+    border-top: 1px solid $dark;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
 }

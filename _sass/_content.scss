@@ -1,0 +1,83 @@
+/* FOOTNOTES */
+
+.footnote {
+    &::before {
+        content: "[";
+    }
+
+    &::after {
+        content: "]";
+    }
+    padding-left: 0.25em;
+}
+
+.footnotes {
+    border-top: 1px solid $dark;
+    // padding-top: 1rem;
+    padding: 0;
+
+
+    & > ol {
+        display: table;
+        counter-reset: list;
+        margin: 0;
+        padding: 1rem 2rem;
+
+        & > li {
+            list-style: none;
+            display: table-row;
+
+            & > p {
+                margin-bottom: 0;
+            }
+
+            &:target {
+                background: mix($primary, $light, 20%);
+                border-radius: 0.25rem;
+            }
+
+            &::before {
+                display: table-cell;
+                padding-right: 1rem;
+
+                counter-increment: list;
+                content: "[" counter(list) "]";
+            }
+        }
+
+    }
+}
+
+.reversefootnote {
+    // font-family: $monospace;
+    // make it superscript
+    top: -.5em;
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+/* CODE BLOCKS */
+code {
+    font-family: $monospace;
+    font-size: 0.8em;
+}
+
+// inline
+code.highlighter-rouge {
+    background: #ddd;
+    color: hsla(0, 50%, 50%, 1);
+    border-radius: 0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    word-wrap: break-word;
+}
+// block level
+div.highlighter-rouge pre {
+    background: #ddd;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ddd;
+    line-height: 1.2;
+}
