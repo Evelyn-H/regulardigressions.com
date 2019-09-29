@@ -1,0 +1,96 @@
+#header-content {
+    max-width: $total-width;
+    height: 100%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+        max-width: 16em;
+        margin: 2rem;
+        text-align: center;
+
+        h1 {
+            font-size: 1.5em;
+            line-height: 1.2;
+
+            a {
+                color: inherit;
+
+                &:hover {
+                    color: inherit;
+                }
+            }
+        }
+
+        p {
+            margin: 0;
+            padding-top: 0.5rem;
+            text-align: center;
+            font-size: 0.8em;
+        }
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        a {
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            padding: 0 0.5rem;
+            height: 2rem;
+            line-height: 2rem;
+        }
+
+    }
+
+    .page-links {
+        white-space: nowrap;
+        font-size: 1em;
+        margin: 2rem;
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+
+            &:hover {
+                color: $primary;
+                background: $light;
+            }
+
+            &::before {
+                content: ">>";
+                padding-right: 0.5ch;
+                display: inline-block;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .icon-links {
+        margin: 2rem;
+
+        a {
+            margin-left: 0.75rem;
+            margin-right: 0.75rem;
+            display: inline-block;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        svg {
+            height: 100%;
+            width: auto;
+
+            path {
+                fill: $light;
+            }
+        }
+    }
+}
