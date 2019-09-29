@@ -16,12 +16,14 @@
     // padding-top: 1rem;
     padding: 0;
 
-
     & > ol {
         display: table;
         counter-reset: list;
         margin: 0;
-        padding: 1rem 2rem;
+        padding: 0;
+        // padding-top: 1rem;
+        // padding-right: 1rem;
+        border-spacing: 0 1rem;
 
         & > li {
             list-style: none;
@@ -39,6 +41,7 @@
             &::before {
                 display: table-cell;
                 padding-right: 1rem;
+                padding-left: 1rem;
 
                 counter-increment: list;
                 content: "[" counter(list) "]";
