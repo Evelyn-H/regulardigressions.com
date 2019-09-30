@@ -32,6 +32,11 @@ $total-width-min: $main-width-min + $sidebar-width-min + $gutter-width*3;
 //     }
 // }
 
+// @mixin screen-s-only {
+//     @media (max-width: $main-width-min) {
+//         @content;
+//     }
+// }
 @mixin screen-m {
     @media (min-width: $main-width-min) {
         @content;
