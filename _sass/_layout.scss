@@ -83,14 +83,23 @@ body {
 #header-content {
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+
+    @include screen-m {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    @include screen-m {
+        max-width: $main-width + 2*$gutter-width;
+        margin: auto;
+        padding: 0 $gutter-width;
+    }
 
     @include screen-l {
         max-width: $total-width;
-        margin: auto;
-        padding: 0 $gutter-width;
     }
 
     #header-main-column {
@@ -102,18 +111,86 @@ body {
             max-width: $main-width;
             min-width: $main-width-min;
         }
+
+        .title {
+            flex: 1 1 auto;
+
+            p {
+                display: none;
+                @include screen-m {
+                    display: block;
+                }
+            }
+        }
     }
 
     #header-aside-column {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        // for the mobile menu
+        display: none;
+        @include screen-m {
+            display: flex;
+        }
+
         @include screen-l {
             flex: 1 1 $sidebar-width-min;
             max-width: $sidebar-width;
             min-width: $sidebar-width-min;
 
             margin-left: $gutter-width;
+        }
+    }
+
+    #hamburger {
+        flex: 0 0 auto;
+        margin: 1rem 1rem 1rem 0;
+        padding: 0.5rem;
+
+        @include screen-m {
+            display: none;
+        }
+
+        %hamburger-bar-shared {
+            background: #fafafa;
+            width: 2.5rem;
+            height: 0.25rem;
+            transition: all 0.5s ease;
+        }
+
+        & > .top-bar {
+            @extend %hamburger-bar-shared;
+        }
+
+        & > .middle-bar {
+            @extend %hamburger-bar-shared;
+            margin: 0.5rem 0;
+        }
+
+        & > .bottom-bar {
+            @extend %hamburger-bar-shared;
+        }
+    }
+
+    &.active {
+        #header-aside-column {
+            display: flex;
+        }
+
+        #hamburger {
+            .top-bar {
+                transform: translateY(0.75rem) rotate(45deg);
+            }
+
+            .middle-bar {
+                opacity: 0;
+            }
+
+            .bottom-bar {
+                transform: translateY(-0.75rem) rotate(-45deg);
+            }
         }
     }
 }

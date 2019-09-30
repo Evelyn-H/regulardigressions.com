@@ -1,15 +1,21 @@
 #header-content {
     .title {
-        max-width: 16em; // forces it onto two lines
-        @include screen-l {
-            max-width: none;
-        }
-        margin: 2rem;
+        // max-width: 16em; // forces it onto two lines
+        // @include screen-l {
+            // max-width: none;
+        // }
+        margin: 1rem 2rem;
+        // @include screen-m {
+            // margin: 2rem;
+        // }
+
         text-align: center;
 
         h1 {
             font-size: 1.5em;
             line-height: 1.2;
+
+            margin-bottom: 0;
 
             a {
                 color: inherit;
@@ -22,9 +28,20 @@
 
         p {
             margin: 0;
-            padding-top: 0.5rem;
+            padding-top: 1rem;
             text-align: center;
             font-size: 0.8em;
+        }
+    }
+
+    #hamburger:hover {
+        background: darken($primary, 10%);
+    }
+
+    #header-aside-column {
+        background: darken($primary, 10%);
+        @include screen-m {
+            background: initial;
         }
     }
 
