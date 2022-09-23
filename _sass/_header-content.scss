@@ -1,4 +1,14 @@
 #header-content {
+    a {
+        color: inherit;
+        
+        &:hover {
+            text-decoration: underline;
+            color: $primary;
+            background: $light;
+        }
+    }
+    
     .title {
         // max-width: 16em; // forces it onto two lines
         // @include screen-l {
@@ -16,14 +26,6 @@
             line-height: 1.2;
 
             margin-bottom: 0;
-
-            a {
-                color: inherit;
-
-                &:hover {
-                    color: inherit;
-                }
-            }
         }
 
         p {
@@ -71,14 +73,6 @@
         }
 
         a {
-            color: inherit;
-            
-            &:hover {
-                text-decoration: underline;
-                color: $primary;
-                background: $light;
-            }
-
             &::before {
                 content: ">>";
                 padding-right: 0.5ch;
