@@ -15,6 +15,7 @@ defaults:
             show-date: false
             show-readtime: false
             show-header: true
+            show-latest: true
     -
         scope:
             path: ""
@@ -24,3 +25,4 @@ defaults:
             show-date: true
             show-readtime: true
             show-header: true
+            show-latest: true

@@ -1,6 +1,8 @@
 /* FOOTNOTES */
 
 .footnote {
+    color: $dark-ish;
+    
     &::before {
         content: "[";
     }
@@ -12,9 +14,11 @@
 }
 
 .footnotes {
-    border-top: 1px solid $dark;
+    border-top: 0.125rem solid $dark-ish;
     padding: 0;
     margin-top: 2rem;
+
+    color: $dark-ish;
 
     & > ol {
         display: table;

@@ -36,20 +36,11 @@ body {
         @include screen-m {
             padding: $gutter-width;
         }
-        @include screen-l {
-            flex-direction: row;
-            align-items: flex-start;
-        }
 
         & > article {
             max-width: $main-width;
             width: 100%;
             margin-bottom: $gutter-width;
-            @include screen-l {
-                flex: 2 2 $main-width-min;
-                margin-bottom: 0;
-                min-width: $main-width-min;
-            }
             padding: $gutter-width;
         }
 
@@ -60,21 +51,9 @@ body {
             max-width: $main-width;
             width: 100%;
 
-            @include screen-l {
-                flex: 1 1 $sidebar-width-min;
-                margin-left: $gutter-width;
-                max-width: $sidebar-width;
-                min-width: $sidebar-width-min;
-
-            }
-
             & > section {
                 margin-bottom: $gutter-width;
                 padding: $gutter-width;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
             }
         }
     }
@@ -98,19 +77,10 @@ body {
         padding: 0 $gutter-width;
     }
 
-    @include screen-l {
-        max-width: $total-width;
-    }
-
     #header-main-column {
         display: flex;
         justify-content: center;
         align-items: center;
-        @include screen-l {
-            flex: 2 2 $main-width-min;
-            max-width: $main-width;
-            min-width: $main-width-min;
-        }
 
         .title {
             flex: 1 1 auto;
@@ -133,14 +103,6 @@ body {
         display: none;
         @include screen-m {
             display: flex;
-        }
-
-        @include screen-l {
-            flex: 1 1 $sidebar-width-min;
-            max-width: $sidebar-width;
-            min-width: $sidebar-width-min;
-
-            margin-left: $gutter-width;
         }
     }
 
@@ -169,6 +131,12 @@ body {
             margin: 0.375rem 0;
         }
 
+        & > .middle-bar-shadow {
+            @extend %hamburger-bar-shared;
+            position: absolute;
+            margin-top: -0.375rem - 0.25rem;
+        }
+
         & > .bottom-bar {
             @extend %hamburger-bar-shared;
         }
@@ -181,15 +149,23 @@ body {
 
         #hamburger {
             .top-bar {
-                transform: translateY(0.625rem) rotate(45deg);
+                opacity: 0;
+                // transform: translateY(0.625rem) rotate(45deg);
             }
 
             .middle-bar {
-                opacity: 0;
+                // opacity: 0;
+                transform: rotate(45deg);
+            }
+
+            .middle-bar-shadow {
+                // opacity: 0;
+                transform: rotate(-45deg);
             }
 
             .bottom-bar {
-                transform: translateY(-0.625rem) rotate(-45deg);
+                opacity: 0;
+                // transform: translateY(-0.625rem) rotate(-45deg);
             }
         }
     }

@@ -1,6 +1,6 @@
 ---
-title: about me
-permalink: /about
+title: projects
+permalink: /projects
 center-content: true
 ---
 

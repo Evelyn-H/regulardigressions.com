@@ -9,21 +9,21 @@ $monospace: "Fira Code", $monospace-fallback;
 
 //colours
 $light: #fafafa;
-$dark-ish: #ccc;
+$dark-ish: #999;
 $dark: #222;
 $primary: hsl(255, 25%, 30%);
 $primary-lighter: hsl(255, 10%, 70%);
-$link: hsl(210, 100%, 35%);
-$link-hover: hsl(210, 100%, 25%);
+$primary-darker: darken($primary, 10%);
+$link: lighten($primary, 30%);
+$link-hover: lighten($primary, 10%);
+
+// $dark-ish: $dark;
 
 // layout sizes
 $main-width: 48rem;
 $main-width-min: 40rem;
-$sidebar-width: 22rem;
-$sidebar-width-min: 18rem;
 $gutter-width: 2rem;
-$total-width: $main-width + $sidebar-width + $gutter-width*3;
-$total-width-min: $main-width-min + $sidebar-width-min + $gutter-width*3;
+$total-width: $main-width + $gutter-width * 2;
 
 // Media query mixins
 // @mixin screen-s {
@@ -42,11 +42,11 @@ $total-width-min: $main-width-min + $sidebar-width-min + $gutter-width*3;
         @content;
     }
 }
-@mixin screen-l {
-    @media (min-width: $total-width-min) {
-        @content;
-    }
-}
+// @mixin screen-l {
+//     @media (min-width: $total-width-min) {
+//         @content;
+//     }
+// }
 // @mixin screen-xl {
 //     @media (min-width: $main-width + 2 * $sidebar-width) {
 //         @content;

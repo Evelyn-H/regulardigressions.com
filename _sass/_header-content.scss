@@ -36,11 +36,11 @@
 
     // #hamburger:hover {
     #hamburger {
-        background: darken($primary, 10%);
+        background: $primary-darker;
     }
 
     #header-aside-column {
-        background: darken($primary, 10%);
+        background: $primary-darker;
         @include screen-m {
             background: initial;
         }
@@ -64,6 +64,11 @@
         white-space: nowrap;
         font-size: 1em;
         margin: 2rem;
+
+        margin-bottom: 0rem;
+        @include screen-m {
+            margin-bottom: 2rem;
+        }
 
         a {
             color: inherit;
