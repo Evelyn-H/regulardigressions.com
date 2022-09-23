@@ -124,6 +124,14 @@ a {
             font-family: $monospace;
             border-bottom: 0.125rem solid $dark-ish;
             margin-bottom: 1em;
+
+            a {
+                color: inherit;
+                &:hover {
+                    color: inherit;
+                    text-decoration: none;
+                }
+            }
         }
     }
 }
