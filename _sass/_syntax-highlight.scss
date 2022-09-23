@@ -1,0 +1,190 @@
+// https://github.com/dracula/pygments/blob/master/dracula.scss
+
+/* Dracula Theme v1.2.5
+ *
+ * https://github.com/zenorocha/dracula-theme
+ *
+ * Copyright 2016, All rights reserved
+ *
+ * Code licensed under the MIT license
+ * http://zenorocha.mit-license.org
+ *
+ * @author Rob G <wowmotty@gmail.com>
+ * @author Chris Bracco <chris@cbracco.me>
+ * @author Zeno Rocha <hi@zenorocha.com>
+ * @author Piruin Panichphol <piruin.p@gmail.com>
+ */
+
+/*
+ * Variables
+ */
+
+//  $dt-gray-dark: #282a36;  // Background
+ $dt-gray-dark: $dark-purple;
+ $dt-gray: #44475a;       // Current Line & Selection
+ $dt-gray-light: #f8f8f2; // Foreground
+ $dt-blue: #6272a4;       // Comment
+ $dt-cyan: #8be9fd;
+ $dt-green: #50fa7b;
+ $dt-orange: #ffb86c;
+ $dt-pink: #ff79c6;
+ $dt-purple: #bd93f9;
+ $dt-red: #ff5555;
+ $dt-yellow: #f1fa8c;
+
+// inline
+code.highlighter-rouge {
+    background: $dt-gray-dark;
+    color:  $dt-pink;
+    border-radius: 0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    word-wrap: break-word;
+}
+// block level
+div.highlighter-rouge pre {
+    background: $dt-gray-dark;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    // border: 0.25rem solid $dt-gray-dark;
+    line-height: 1.2;
+}
+
+
+ /*
+  * Styles
+  */
+ 
+ .highlight {
+   // background: $dt-gray-dark;
+   color: $dt-gray-light;
+ 
+   .hll,
+   .s,      /* Literal.String */
+   .sa,     /* Literal.String.Affix */
+   .sb,     /* Literal.String.Backtick */
+   .sc,     /* Literal.String.Char */
+   .dl,     /* Literal.String.Delimiter */
+   .sd,     /* Literal.String.Doc */
+   .s2,     /* Literal.String.Double */
+   .se,     /* Literal.String.Escape */
+   .sh,     /* Literal.String.Heredoc */
+   .si,     /* Literal.String.Interpol */
+   .sx,     /* Literal.String.Other */
+   .sr,     /* Literal.String.Regex */
+   .s1,     /* Literal.String.Single */
+   .ss {    /* Literal.String.Symbol */
+     color: $dt-yellow;
+   }
+ 
+   .go {    /* Generic.Output */
+     color: $dt-gray;
+   }
+ 
+   .err,    /* Error */
+   .g,      /* Generic */
+   .l,      /* Literal */
+   .n,      /* Name */
+   .x,      /* Other */
+   .p,      /* Punctuation */
+   .ge,     /* Generic.Emph */
+   .gr,     /* Generic.Error */
+   .gh,     /* Generic.Heading */
+   .gi,     /* Generic.Inserted */
+   .gp,     /* Generic.Prompt */
+   .gs,     /* Generic.Strong */
+   .gu,     /* Generic.Subheading */
+   .gt,     /* Generic.Traceback */
+   .ld,     /* Literal.Date */
+   .no,     /* Name.Constant */
+   .nd,     /* Name.Decorator */
+   .ni,     /* Name.Entity */
+   .ne,     /* Name.Exception */
+   .nn,     /* Name.Namespace */
+   .nx,     /* Name.Other */
+   .py,     /* Name.Property */
+   .w,      /* Text.Whitespace */
+   .bp {    /* Name.Builtin.Pseudo */
+     color: $dt-gray-light;
+   }
+ 
+   .gh,     /* Generic.Heading */
+   .gi,     /* Generic.Inserted */
+   .gu {    /* Generic.Subheading */
+     font-weight: bold;
+   }
+ 
+   .ge {    /* Generic.Emph */
+     text-decoration: underline;
+   }
+ 
+   .bp {    /* Name.Builtin.Pseudo */
+     font-style: italic;
+   }
+ 
+   .c,      /* Comment */
+   .ch,     /* Comment.Hashbang */
+   .cm,     /* Comment.Multiline */
+   .cpf,    /* Comment.PreprocFile */
+   .c1,     /* Comment.Single */
+   .cs {    /* Comment.Special */
+     color: $dt-blue;
+   }
+ 
+   .kd,     /* Keyword.Declaration */
+   .kt,     /* Keyword.Type */
+   .nb,     /* Name.Builtin */
+   .nl,     /* Name.Label */
+   .nv,     /* Name.Variable */
+   .vc,     /* Name.Variable.Class */
+   .vg,     /* Name.Variable.Global */
+   .vi,     /* Name.Variable.Instance */
+   .vm {    /* Name.Variable.Magic */
+     color: $dt-cyan;
+   }
+ 
+   .kd,     /* Keyword.Declaration */
+   .nb,     /* Name.Builtin */
+   .nl,     /* Name.Label */
+   .nv,     /* Name.Variable */
+   .vc,     /* Name.Variable.Class */
+   .vg,     /* Name.Variable.Global */
+   .vi,     /* Name.Variable.Instance */
+   .vm {    /* Name.Variable.Magic */
+     font-style: italic;
+   }
+ 
+   .na,     /* Name.Attribute */
+   .nc,     /* Name.Class */
+   .nf,     /* Name.Function */
+   .fm {    /* Name.Function.Magic */
+     color: $dt-green;
+   }
+ 
+   .k,      /* Keyword */
+   .o,      /* Operator */
+   .cp,     /* Comment.Preproc */
+   .kc,     /* Keyword.Constant */
+   .kn,     /* Keyword.Namespace */
+   .kp,     /* Keyword.Pseudo */
+   .kr,     /* Keyword.Reserved */
+   .nt,     /* Name.Tag */
+   .ow {    /* Operator.Word */
+     color: $dt-pink;
+   }
+ 
+   .m,      /* Literal.Number */
+   .mb,     /* Literal.Number.Bin */
+   .mf,     /* Literal.Number.Float */
+   .mh,     /* Literal.Number.Hex */
+   .mi,     /* Literal.Number.Integer */
+   .mo,     /* Literal.Number.Oct */
+   .il {    /* Literal.Number.Integer.Long */
+     color: $dt-purple;
+   }
+ 
+   .gd {    /* Generic.Deleted */
+     color: $dt-red;
+   }
+ }
+ 

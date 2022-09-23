@@ -1,8 +1,58 @@
 /* FOOTNOTES */
 
+.post {
+    h2 {
+        color: $dark-ish;
+        padding-top: 1em;
+        &::before {
+            content: "##";
+        }
+    }
+
+    h3 {
+        color: $dark-ish;
+        padding-top: 0.5em;
+        &::before {
+            content: "###";
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+        thead {
+            border-bottom: 0.125em solid $dark-ish;
+        }
+
+        th, td {
+            padding-left: 0.5em;
+            &:first-child {
+                padding-left: 0em;
+            }
+        }
+    }
+}
+
+blockquote {
+    background: $dark-purple;
+    border-left: 0.25em solid $dark-ish;
+    padding: 0.25em;
+    padding-left: 0.5em;
+
+    footer {
+        font-style: italic;
+        padding-left: 2em;
+
+        &::before {
+            content: "—";
+            padding-right: 0.5em;
+        }
+    }
+}
+
 .footnote {
-    color: $dark-ish;
-    
+    color: $link;
+
     &::before {
         content: "[";
     }
@@ -47,6 +97,7 @@
                 padding-right: 1rem;
                 padding-left: 1rem;
 
+                color: $link;
                 counter-increment: list;
                 content: "[" counter(list) "]";
             }
@@ -68,23 +119,5 @@
 /* CODE BLOCKS */
 code {
     font-family: $monospace;
-    font-size: 0.8em;
-}
-
-// inline
-code.highlighter-rouge {
-    background: #ddd;
-    color: hsla(0, 50%, 50%, 1);
-    border-radius: 0.25rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    word-wrap: break-word;
-}
-// block level
-div.highlighter-rouge pre {
-    background: #ddd;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    border: 1px solid #ddd;
-    line-height: 1.2;
+    font-size: 0.75em;
 }
