@@ -93,10 +93,10 @@ a {
 
     a {
         color: $light;
-        text-decoration: underline;
         padding: 0.25em;
-    
+        
         &:hover {
+            text-decoration: underline;
             color: $primary;
             background: $light;
         }

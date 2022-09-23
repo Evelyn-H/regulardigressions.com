@@ -72,9 +72,9 @@
 
         a {
             color: inherit;
-            text-decoration: underline;
-
+            
             &:hover {
+                text-decoration: underline;
                 color: $primary;
                 background: $light;
             }
