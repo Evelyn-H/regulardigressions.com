@@ -109,6 +109,10 @@ div.highlighter-rouge pre {
    .bp {    /* Name.Builtin.Pseudo */
      color: $dt-gray-light;
    }
+
+   .p {
+    color: darken($dt-gray-light, 30%);
+   }
  
    .gh,     /* Generic.Heading */
    .gi,     /* Generic.Inserted */
@@ -142,7 +146,7 @@ div.highlighter-rouge pre {
    .vg,     /* Name.Variable.Global */
    .vi,     /* Name.Variable.Instance */
    .vm {    /* Name.Variable.Magic */
-     color: $dt-cyan;
+     color: $dt-green;
    }
  
    .kd,     /* Keyword.Declaration */
@@ -157,11 +161,14 @@ div.highlighter-rouge pre {
    }
  
    .na,     /* Name.Attribute */
-   .nc,     /* Name.Class */
    .nf,     /* Name.Function */
    .fm {    /* Name.Function.Magic */
-     color: $dt-green;
-   }
+        color: $dt-cyan;
+    }
+    .nc {   /* Name.Class */
+        color: $dt-orange;
+    }     
+
  
    .k,      /* Keyword */
    .o,      /* Operator */
