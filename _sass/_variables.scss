@@ -8,17 +8,18 @@ $main-font: Alegreya, $main-font-fallback;
 $monospace: "Fira Code", $monospace-fallback;
 
 //colours
-$light: #fafafa;
+$light: #eee;
 $dark-ish: #999;
 $dark: #222;
 $dark-purple: #2f2b3b;
 $primary: hsl(255, 25%, 30%);
-$primary-lighter: hsl(255, 10%, 70%);
+// $primary-lighter: hsl(255, 10%, 70%);
+$primary-lighter: lighten($primary, 50%);
 $primary-darker: darken($primary, 10%);
 $link: lighten($primary, 30%);
 $link-hover: lighten($primary, 10%);
 
-// $dark-ish: $dark;
+// $dark-ish: $primary-lighter;
 
 // layout sizes
 $main-width: 48rem;

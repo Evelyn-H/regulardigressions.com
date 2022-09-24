@@ -1,19 +1,25 @@
-/* FOOTNOTES */
-
-.post {
+#post {
     h2 {
-        color: $dark-ish;
+        color: $primary-lighter;
         padding-top: 1em;
         &::before {
             content: "##";
         }
+
+        a {
+            color: $primary-lighter;
+        }
     }
 
     h3 {
-        color: $dark-ish;
+        color: $primary-lighter;
         padding-top: 0.5em;
         &::before {
             content: "###";
+        }
+
+        a {
+            color: $primary-lighter;
         }
     }
 
@@ -35,9 +41,9 @@
 
 blockquote {
     background: $dark-purple;
-    border-left: 0.25em solid $dark-ish;
-    padding: 0.25em;
-    padding-left: 0.5em;
+    border-left: 0.25em solid $primary-lighter;
+    padding: 0.5em;
+    padding-left: 0.75em;
 
     footer {
         font-style: italic;
@@ -67,6 +73,7 @@ blockquote {
     border-top: 0.125rem solid $dark-ish;
     padding: 0;
     margin-top: 2rem;
+    font-size: 0.9em;
 
     color: $dark-ish;
 
@@ -85,10 +92,11 @@ blockquote {
 
             & > p {
                 margin-bottom: 0;
+                padding: 0.25em;
             }
 
             &:target {
-                background: mix($primary, $light, 20%);
+                background: $dark-purple;
                 border-radius: 0.25rem;
             }
 

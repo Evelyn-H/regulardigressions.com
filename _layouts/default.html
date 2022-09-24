@@ -31,6 +31,22 @@
         gtag('js', new Date());
         gtag('config', 'UA-145067297-1');
     </script>
+
+    <!-- automatically put links inside h2 and h3 tags in the main post body -->
+    <script>
+        function add_link(heading) {
+            var link = document.createElement('a');
+            link.innerHTML = heading.innerHTML;
+            link.setAttribute('href', '#' + heading.id);
+            heading.innerHTML = link.outerHTML;
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            var post = document.querySelector('#post');
+            Array.from(post.querySelectorAll('h2')).forEach(add_link)
+            Array.from(post.querySelectorAll('h3')).forEach(add_link)
+        });
+    </script>
 </head>
 
 <body>
