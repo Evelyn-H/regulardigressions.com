@@ -68,7 +68,7 @@
                 {% if page.show-readtime or page.show-date %}
                 <p class="post-meta">
                     {% if page.show-date %}
-                    <time datetime="{{page.date}}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                    <time datetime="{{page.date}}">{{ page.date | date: "%B %-d, %Y" | downcase }}</time>
                     {% endif %}
                     {% if page.show-readtime and page.show-date %}
                     <span class="dash">&mdash;</span>
