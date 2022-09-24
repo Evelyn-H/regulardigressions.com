@@ -22,7 +22,8 @@
 //  $dt-gray-dark: #282a36;  // Background
  $dt-gray-dark: $dark-purple;
  $dt-gray: #44475a;       // Current Line & Selection
- $dt-gray-light: #f8f8f2; // Foreground
+//  $dt-gray-light: #f8f8f2; // Foreground
+ $dt-gray-light: $light; // Foreground
  $dt-blue: #6272a4;       // Comment
  $dt-cyan: #8be9fd;
  $dt-green: #50fa7b;
@@ -44,9 +45,10 @@ code.highlighter-rouge {
 // block level
 div.highlighter-rouge pre {
     background: $dt-gray-dark;
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 0.25rem;
-    // border: 0.25rem solid $dt-gray-dark;
+    border: 0.125rem solid lighten($dark-purple, 10%);
+
     line-height: 1.2;
 }
 
