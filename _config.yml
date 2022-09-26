@@ -16,6 +16,7 @@ defaults:
             show-readtime: false
             show-header: true
             show-latest: true
+            latex: false
     -
         scope:
             path: ""
@@ -26,3 +27,4 @@ defaults:
             show-readtime: true
             show-header: true
             show-latest: true
+            latex: false
