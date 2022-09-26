@@ -4,6 +4,6 @@ permalink: /projects/
 center-content: true
 ---
 
-## Coming Soon™
+## coming Soon™
 
 <!-- This page tells you a little bit about me. -->
