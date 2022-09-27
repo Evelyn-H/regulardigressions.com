@@ -45,6 +45,18 @@
     }
 }
 
+.signature {
+    font-family: $monospace;
+    font-size: 0.75em;
+    text-align: right;
+    margin-right: 4em;
+    margin-top: 2em;
+
+    .heart {
+        vertical-align: text-bottom;
+    }
+}
+
 blockquote {
     background: $dark-purple;
     border-left: 0.25em solid $primary-lighter;
@@ -109,7 +121,7 @@ blockquote {
 
             &::before {
                 display: table-cell;
-                padding-right: 1rem;
+                padding-right: 0.5rem;
                 padding-left: 1rem;
 
                 color: $link;

@@ -16,6 +16,7 @@ defaults:
             show-readtime: false
             show-header: true
             show-latest: true
+            show-signature: false
             latex: false
     -
         scope:
@@ -27,4 +28,5 @@ defaults:
             show-readtime: true
             show-header: true
             show-latest: true
+            show-signature: true
             latex: false
