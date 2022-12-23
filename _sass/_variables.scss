@@ -3,8 +3,11 @@ $main-font-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hel
 $monospace-fallback: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // fonts
 // $main-font: "Alegreya Sans", $main-font-fallback;
+// $main-font: "Iosevka Slab Web", Alegreya, $main-font-fallback;
 $main-font: Alegreya, $main-font-fallback;
-// $main-font: "PT Serif", $main-font-fallback;
+// $main-font: "Fira Code", $main-font-fallback;
+$main-font: "Crimson Pro", $main-font-fallback;
+// $monospace: "Iosevka Slab Web", "Fira Code", $monospace-fallback;
 $monospace: "Fira Code", $monospace-fallback;
 
 //colours
