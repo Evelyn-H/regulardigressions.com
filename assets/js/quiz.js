@@ -6,46 +6,73 @@ function build(tag, ...classes) {
     return el
 }
 
+class Answer {
+    constructor(answer, initial=false, onclick=null) {
+        this.answer = answer;
+        this.dom_element = null;
+        this.onclick_callback = onclick
+    }
+
+    get is_selected() {
+        return this.dom_element.classList.contains("selected");
+    }
+
+    onclick(event) {
+        this.dom_element.classList.toggle("selected");
+        if (this.onclick_callback) {
+            this.onclick_callback();
+        }
+    }
+
+    build_dom() {
+        var el = build("div", "choice")
+        el.textContent = this.answer;
+        this.dom_element = el;
+
+        this.dom_element.addEventListener("click", event => this.onclick(event));
+
+        return el;
+    }
+}
+
 class Question {
-    constructor(id, question, answers) {
+    constructor(id, question, answers, initial=[], onclick=null) {
         this.id = id;
         this.question = question;
-        this.answers = answers;
-        // other things: (initial) selection, onclick callback
+        this.answers = answers.map(answer => new Answer(answer));
     }
-  }
 
-// example output structure of this function:
-/* 
-<section>
-    <div class="question">Why did you buy bamboo?</div>
-    <div class="answers">
-        <div class="choice">for hitting people with</div>
-        <div class="choice">for planting</div>
-        <div class="choice">for attaching to people</div>
-        <div class="choice">just so I Have Bamboo</div>
-        <div class="choice">also for hanging people off of</div>
-    </div>
-</section> 
-*/
+    get selected() {
+        return this.answers.filter(choice => choice.is_selected());
+    }
+
+    get score() {
+
+    }
+
+    build_dom() {
+        var el = document.createElement("section");
+
+        var question = build("div", "question");
+        question.textContent = this.question;
+        el.append(question);
+
+        var answers = build("div", "answers");
+        this.answers.forEach(choice => {
+            var el = choice.build_dom();
+            answers.append(el);
+        });
+        el.append(answers);
+
+        return el;
+    }
+}
+
+
 function add_question(q) {
     var question_list = document.getElementById("questions");
 
-    var question = build("div", "question");
-    question.textContent = q.question;
-
-    var answers = build("div", "answers");
-    q.answers.forEach(choice => {
-        var el = build("div", "choice")
-        el.textContent = choice;
-        answers.append(el);
-    });
-
-    var el = document.createElement("section");
-    el.append(question);
-    el.append(answers);
-
-    question_list.append(el);
+    question_list.append(q.build_dom());
 }
 
 addEventListener("DOMContentLoaded", () => {

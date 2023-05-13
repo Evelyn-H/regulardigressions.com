@@ -67,7 +67,7 @@ section {
             background-color: rgba($primary, 0.2);
             // font-weight: bold;
 
-            &.deselected {
+            &:not(.selected) {
                 opacity: 0.5;
             }
         }
